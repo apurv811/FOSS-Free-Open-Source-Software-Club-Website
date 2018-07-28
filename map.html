@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+<script>
+function initialize() {
+  var mapProp = {
+    center:new google.maps.LatLng(23.0338,72.5466),
+    zoom:5,
+    mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+  var myCenter=new google.maps.LatLng(23.0338,72.5466);
+  var marker=new google.maps.Marker({
+  position:myCenter,
+  });
+  var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+map.setZoom(12);
+marker.setMap(map);
+  
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+</head>
+
+<body>
+<div id="googleMap" style="width:1000px;height:1000px;"></div>
+</body>
+
+</html>

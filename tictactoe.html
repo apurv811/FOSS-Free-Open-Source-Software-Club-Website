@@ -1,0 +1,57 @@
+<html>
+<head>
+<script>
+var c=1;
+function fn(n)
+{
+var d=document.getElementById(n.id);
+if(d.innerHTML==""||d.innerHTML==" ")
+{
+if(c%2!=0)
+{
+d.innerHTML="0";
+c=c+1;
+}
+else
+{
+d.innerHTML="X";
+c=c+1;
+}
+f1(d1,d2,d3);
+f1(d4,d5,d6);
+f1(d7,d8,d9);
+f1(d1,d4,d7);
+f1(d2,d5,d8);
+f1(d3,d5,d7);
+f1(d3,d6,d9);
+f1(d1,d5,d9);
+}
+}
+function f1(m,n,o)
+{
+var x=document.getElementById(m.id);
+var y=document.getElementById(n.id);
+var z=document.getElementById(o.id);
+if(x.innerHTML=="0" && y.innerHTML=="0" && z.innerHTML=="0")
+{
+
+alert("0 wins");
+}
+if(x.innerHTML=="X" && y.innerHTML=="X" && z.innerHTML=="X")
+{
+alert("X WINS");
+}
+}
+</script>
+<body>
+<div id="d1"  style="height:200px;width:200px;border:1px solid black;float:left" onclick="fn(this)"></div>
+<div id="d2" style="height:200px;width:200px;border:1px solid black;float:left" onclick="fn(this)"></div>
+<div id="d3" style="height:200px;width:200px;border:1px solid black;float:left" onclick="fn(this)"></div>
+<div id="d4" style="height:200px;width:200px;border:1px solid black;clear:left;float:left" onclick="fn(this)"></div>
+<div id="d5" style="height:200px;width:200px;border:1px solid black;float:left" onclick="fn(this)"></div>
+<div id="d6" style="height:200px;width:200px;border:1px solid black;float:left" onclick="fn(this)"></div>
+<div id="d7" style="height:200px;width:200px;border:1px solid black;clear:left;float:left" onclick="fn(this)"></div>
+<div id="d8" style="height:200px;width:200px;border:1px solid black;float:left" onclick="fn(this)"></div>
+<div id="d9" style="height:200px;width:200px;border:1px solid black;float:left" onclick="fn(this)"></div>
+<div id="d10" style="height:200px;width:600px;border:1px solid black;clear:left"></div>
+</body>

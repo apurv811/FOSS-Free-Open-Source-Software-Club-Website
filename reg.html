@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Summer School, LDCE</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <!-- Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="css/animate.css" rel="stylesheet" />
+    <!-- Squad theme CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/timeline.css" rel="stylesheet">
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+	<link href="color/default.css" rel="stylesheet">
+	<style type="text/css">
+		
+@keyframes blink { 
+   50% { border:transparent; padding-right:0.08em  } 
+}
+
+h1,.large { font-size: 3.5em; }
+h2 {
+	text-transform: none !important;
+  color: #888;
+  
+}
+#map-canvas {
+        margin: 0;
+        padding: 0;
+        height: 300px;
+        width: 600px;
+      }
+
+	</style>
+
+	<!-- Core JavaScript Files -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.easing.min.js"></script>	
+	<script src="js/jquery.scrollTo.js"></script>
+	<script src="js/wow.min.js"></script>
+    
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
+	<!-- Preloader -->
+	<div id="preloader">
+	  <div id="load"></div>
+	</div>
+
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="index.html">
+                    <h3>L.D. Alumni Association & CE-IT Dept. LDCE Brings</h3>
+					
+					
+					
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="index.html">Home</a></li>
+        <li><a href="index.html">overview</a></li>
+		<li><a href="index.html">Schedule</a></li>
+		<!-- <li><a href="#contact"></a></li> -->
+		<li><a href="https://docs.google.com/forms/d/1_57klnh7MCeXJNsQq-1rk0-vb1IFfi1O0RptfOISS4g/viewform">Registration </a></li>
+		<li><a href="index.html">Contact</a></li>
+        <!-- <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Example menu</a></li>
+            <li><a href="#">Example menu</a></li>
+            <li><a href="#">Example menu</a></li>
+          </ul>
+        </li> -->
+      </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+<div>
+		
+		
+		<iframe src="https://docs.google.com/forms/d/1_57klnh7MCeXJNsQq-1rk0-vb1IFfi1O0RptfOISS4g/viewform" />
+</div>
+
+
+
+
+			<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 col-lg-12">
+					<div class="wow shake" data-wow-delay="0.4s">
+					<div class="page-scroll marginbot-30">
+						<a href="#intro" id="totop" class="btn btn-circle">
+							<i class="fa fa-angle-double-up animated"></i>
+						</a>
+					</div>
+					</div>
+					<p>&copy;Copyright 2016 - LDCE. All rights reserved. <a href="http://ldce.ac.in/">LDCE Official </a> </p>
+                    <!-- 
+                        All links in the footer should remain intact. 
+                        Licenseing information is available at: http://bootstraptaste.com/license/
+                        You can buy this theme without footer links online at: http://bootstraptaste.com/buy/?theme=Squadfree
+                    -->
+				</div>
+			</div>	
+		</div>
+	</footer>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/custom.js"></script>
+    <script src="js/map.js"></script>
+
+<script type="text/javascript">
+	
+	var TxtRotate = function(el, toRotate, period) {
+		  this.toRotate = toRotate;
+		  this.el = el;
+		  this.loopNum = 0;
+		  this.period = parseInt(period, 10) || 2000;
+		  this.txt = '';
+		  this.tick();
+		  this.isDeleting = false;
+	};
+
+TxtRotate.prototype.tick = function() {
+	  var i = this.loopNum % this.toRotate.length;
+	  var fullTxt = this.toRotate[i];
+
+	  if (this.isDeleting) {
+	    this.txt = fullTxt.substring(0, this.txt.length - 1);
+	  } else {
+	    this.txt = fullTxt.substring(0, this.txt.length + 1);
+ 	  }
+
+  this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+  var that = this;
+  var delta = 250 - Math.random() * 200;
+
+  if (this.isDeleting) { delta /= 2; }
+
+  if (!this.isDeleting && this.txt === fullTxt) {
+    delta = this.period;
+    this.isDeleting = true;
+  } else if (this.isDeleting && this.txt === '') {
+    this.isDeleting = false;
+    this.loopNum++;
+    delta = 500;
+  }
+
+  setTimeout(function() {
+    that.tick();
+  }, delta);
+};
+
+
+function run_timeline(){
+
+	var t_data = Array(
+		
+		["Getting familiar with the cloud fundamentals" ,'9:00 AM  TO 3:00 PM','18 th - 19 th JUNE ', 'Prof. Chirag patel'],
+		["Algorithms &amp; Graph Theory",'n Days', 'Prof. XYZ'],
+		["Programming &amp; Data Structures",'n Days', 'Prof. XYZ'],
+		["Introduction to Linux Device Driver",'n Days', 'Prof. XYZ'],
+		["Programming Foundations with Python",'n Days', 'Prof. XYZ'],
+		["Intro to Hadoop and MapReduce",'n Days', 'Prof. XYZ'],
+		["Intro to Data Analysis",'n Days', 'Prof. XYZ'],
+		["Intro to Artificial Intelligence",'n Days', 'Prof. XYZ'],
+		["Intro to Front End web Development(AJAX, jQuery)",'n Days', 'Prof. XYZ'],
+		["Introduction to R for Data Science",'n Days', 'Prof. XYZ'],
+		["Principles of Machine Learning",'n Days', 'Prof. XYZ'],
+		["Introduction to Cloud Computing",'n Days', 'Prof. XYZ'],
+		["Research talks by domain experts",'n Days', 'Prof. XYZ']
+	);
+
+	for( i in t_data){
+
+		// var t_dir = i%2 ==0 ?'l':'r';
+		var t_thing = t_data[i][0];
+		var t_time = t_data[i][1];
+		var t_date = t_data[i][2];
+
+		var t_person = t_data[i][3];
+
+ 
+			var t_htm_data = '<li class="wow bounceInUp"> <h3>'+t_thing+'</h3> <h5><i> By '+t_person+'</i></h5> <h3>'+t_date+'</h3><time>' +t_time+'</time> </li>' ;
+
+			document.getElementById('tim_x').innerHTML+= t_htm_data;
+	}
+									  
+}
+window.onload = function() {
+
+
+	run_timeline();
+
+
+  var elements = document.getElementsByClassName('txt-rotate');
+  for (var i=0; i<elements.length; i++) {
+    var toRotate = elements[i].getAttribute('data-rotate');
+    var period = elements[i].getAttribute('data-period');
+    if (toRotate) {
+      new TxtRotate(elements[i], JSON.parse(toRotate), period);
+    }
+  }
+  // INJECT CSS
+  var css = document.createElement("style");
+  css.type = "text/css";
+  css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #BBB;animation: blink .5s step-end infinite alternate; }";
+  document.body.appendChild(css);
+};
+</script>
+</body>
+
+</html>
